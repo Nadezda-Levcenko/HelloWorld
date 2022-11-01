@@ -103,5 +103,21 @@ public class Main {
 
         rezultats = 5*(3+7)/2;
         System.out.println(rezultats);
+
+        //Kompanija
+        String company = "KRONUS";
+        //System.out.println("Uzņēmuma nosaukums ir: " + company);
+        String pavadteksts = "Uzņēmuma nosaukums ir: ";
+        System.out.println(pavadteksts + company);
+        int gads = 1995;
+        System.out.println("Uzņēmums dibināts " + gads + ".gadā.");
+        double apgrozijums = 5.4;
+        System.out.println("Gada apgrozījums sastāda " + apgrozijums + " miljonus euro.");
+        boolean vaiIrChina = true;
+        System.out.println("Vai uzņēmuma birojs ir Ķīnā?" + true);
+        if(vaiIrChina==true){
+            System.out.println("Ķīnas birojs veicīna darbības attīstību visā Āzijas reģionā.");
+        }
+
     }
 }
