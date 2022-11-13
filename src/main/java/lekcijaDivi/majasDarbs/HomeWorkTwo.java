@@ -102,13 +102,13 @@ public class HomeWorkTwo {
     //5.uzdevums
     public static void printBusinessCard(){
             for (int i = 1; i < 4; i++) {
-                System.out.println("Vizītkarte" + "\n" + "\n" + "Vārds: Nadežda" + "\n" + "Uzvārds: Ļevčenko" + "\n" +
+                System.out.println("Vizītkarte" + "\n" + "##########" + "\n" + "Vārds: Nadežda" + "\n" + "Uzvārds: Ļevčenko" + "\n" +
                         "Telefona numurs: +371 26051455" + "\n" + "Dzimšanas gads: 1983" + "\n");
             }
     }
     //6.uzdevums
     public static void printBusinessCardTwo(String name, String surname, int phone, int birthYear){
-         System.out.println("Vizītkarte" + "\n" + "\n" + "Vārds: " + name + "\n" + "Uzvārds: " + surname + "\n" +
+         System.out.println("Vizītkarte" + "\n" + "##########" + "\n" + "Vārds: " + name + "\n" + "Uzvārds: " + surname + "\n" +
                     "Telefona numurs: +371 " + phone + "\n" + "Dzimšanas gads: " + birthYear + "\n");
     }
 }
