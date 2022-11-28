@@ -66,4 +66,132 @@ public class sauceDemoTests extends BaseTest {
         checkoutSuccessPage.getBackHomeButton().click();
         Thread.sleep(1500);
     }
+
+    @Test
+    public void testFirstNameIsNull() throws InterruptedException {
+        System.out.println("Otrais Scenārijs");
+        System.out.println("1. Navigēties uz saiti https://www.saucedemo.com/");
+        System.out.println("2. Ielogoties ar pareizu lietotāja vārdu/paroli");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("standard_user", "secret_sauce");
+
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        Assert.assertEquals(inventoryPage.getPageTitle().getText(), "PRODUCTS");
+        Thread.sleep(1000);
+
+        System.out.println("3. Doties uz Grozu");
+        inventoryPage.getCartPage().click();
+
+        CartPage cartPage = new CartPage(driver);
+        Assert.assertEquals(cartPage.getPageTitle().getText(), "YOUR CART");
+        Thread.sleep(1000);
+
+        System.out.println("4. Doties uz Checkout");
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        cartPage.getCheckOutButton().click();
+        Assert.assertEquals(checkoutPage.getPageTitle().getText(), "CHECKOUT: YOUR INFORMATION");
+        Thread.sleep(1000);
+
+        System.out.println("5. Pārbaudīt, ka FirstName/LastName/Zip code ir obligāts");
+        checkoutPage.fillCheckoutFields("", "Levcenko", "LV-1235");
+        checkoutPage.getContinueButton().click();
+        Assert.assertEquals(checkoutPage.getErrorMessage().getText(), "Error: First Name is required");
+        Thread.sleep(1000);
+    }
+
+    @Test
+    public void testLastNameIsNull() throws InterruptedException {
+        System.out.println("Otrais Scenārijs");
+        System.out.println("1. Navigēties uz saiti https://www.saucedemo.com/");
+        System.out.println("2. Ielogoties ar pareizu lietotāja vārdu/paroli");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("standard_user", "secret_sauce");
+
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        Assert.assertEquals(inventoryPage.getPageTitle().getText(), "PRODUCTS");
+        Thread.sleep(1000);
+
+        System.out.println("3. Doties uz Grozu");
+        inventoryPage.getCartPage().click();
+
+        CartPage cartPage = new CartPage(driver);
+        Assert.assertEquals(cartPage.getPageTitle().getText(), "YOUR CART");
+        Thread.sleep(1000);
+
+        System.out.println("4. Doties uz Checkout");
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        cartPage.getCheckOutButton().click();
+        Assert.assertEquals(checkoutPage.getPageTitle().getText(), "CHECKOUT: YOUR INFORMATION");
+        Thread.sleep(1000);
+
+        System.out.println("5. Pārbaudīt, ka FirstName/LastName/Zip code ir obligāts");
+        checkoutPage.fillCheckoutFields("jjbnmcx", "", "LV-1235");
+        checkoutPage.getContinueButton().click();
+        Assert.assertEquals(checkoutPage.getErrorMessage().getText(), "Error: Last Name is required");
+        Thread.sleep(1000);
+    }
+
+    @Test
+    public void testPostCodeIsNull() throws InterruptedException {
+        System.out.println("Otrais Scenārijs");
+        System.out.println("1. Navigēties uz saiti https://www.saucedemo.com/");
+        System.out.println("2. Ielogoties ar pareizu lietotāja vārdu/paroli");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("standard_user", "secret_sauce");
+
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        Assert.assertEquals(inventoryPage.getPageTitle().getText(), "PRODUCTS");
+        Thread.sleep(1000);
+
+        System.out.println("3. Doties uz Grozu");
+        inventoryPage.getCartPage().click();
+
+        CartPage cartPage = new CartPage(driver);
+        Assert.assertEquals(cartPage.getPageTitle().getText(), "YOUR CART");
+        Thread.sleep(1000);
+
+        System.out.println("4. Doties uz Checkout");
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        cartPage.getCheckOutButton().click();
+        Assert.assertEquals(checkoutPage.getPageTitle().getText(), "CHECKOUT: YOUR INFORMATION");
+        Thread.sleep(1000);
+
+        System.out.println("5. Pārbaudīt, ka FirstName/LastName/Zip code ir obligāts");
+        checkoutPage.fillCheckoutFields("jjbnmcx", "bchsbn", "");
+        checkoutPage.getContinueButton().click();
+        Assert.assertEquals(checkoutPage.getErrorMessage().getText(), "Error: Postal Code is required");
+        Thread.sleep(1000);
+    }
+
+    @Test
+    public void testAllDataIsNull() throws InterruptedException {
+        System.out.println("Otrais Scenārijs");
+        System.out.println("1. Navigēties uz saiti https://www.saucedemo.com/");
+        System.out.println("2. Ielogoties ar pareizu lietotāja vārdu/paroli");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("standard_user", "secret_sauce");
+
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        Assert.assertEquals(inventoryPage.getPageTitle().getText(), "PRODUCTS");
+        Thread.sleep(1000);
+
+        System.out.println("3. Doties uz Grozu");
+        inventoryPage.getCartPage().click();
+
+        CartPage cartPage = new CartPage(driver);
+        Assert.assertEquals(cartPage.getPageTitle().getText(), "YOUR CART");
+        Thread.sleep(1000);
+
+        System.out.println("4. Doties uz Checkout");
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        cartPage.getCheckOutButton().click();
+        Assert.assertEquals(checkoutPage.getPageTitle().getText(), "CHECKOUT: YOUR INFORMATION");
+        Thread.sleep(1000);
+
+        System.out.println("5. Pārbaudīt, ka FirstName/LastName/Zip code ir obligāts");
+        checkoutPage.fillCheckoutFields("", "", "");
+        checkoutPage.getContinueButton().click();
+        Assert.assertEquals(checkoutPage.getErrorMessage().getText(), "Error: First Name is required");
+        Thread.sleep(1000);
+    }
 }

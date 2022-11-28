@@ -10,6 +10,7 @@ public class CheckoutPage extends BasePage {
     private By lastName = By.id("last-name");
     private By postCode = By.id("postal-code");
     private By continueButton = By.id("continue");
+    private By errorMessage = By.cssSelector("div.error-message-container h3");
 
     public WebElement getFirstName(){
         return driver.findElement(firstName);
@@ -27,6 +28,10 @@ public class CheckoutPage extends BasePage {
         getFirstName().sendKeys(firstName);
         getLastName().sendKeys(lastName);
         getPostCode().sendKeys(postCode);
+    }
+
+    public WebElement getErrorMessage(){
+        return driver.findElement(errorMessage);
     }
 
     public CheckoutPage (WebDriver driver) {
